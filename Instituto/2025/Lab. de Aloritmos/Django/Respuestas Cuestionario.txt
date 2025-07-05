@@ -1,0 +1,82 @@
+PREGUNTA 1: ¿Qué es Django y por qué lo usaríamos?
+Django es un framework de desarrollo web de alto nivel, de código abierto y gratuito, escrito íntegramente en Python. Su filosofía principal se centra en la reutilización y la "conectividad" de componentes, siguiendo el principio de "No te repitas" (Don't Repeat Yourself - DRY). Fue creado por desarrolladores experimentados para abordar los desafíos comunes del desarrollo web, permitiendo construir aplicaciones complejas y basadas en datos de manera rápida y con un código limpio y pragmático. En lugar de tener que reinventar la rueda para cada nuevo proyecto, Django proporciona una estructura robusta y un conjunto de herramientas listas para usar, lo que se conoce como su enfoque de "baterías incluidas". Esto significa que muchas de las funcionalidades que una aplicación web moderna necesita, como un sistema de autenticación de usuarios, un panel de administración de contenido, protección contra vulnerabilidades de seguridad comunes (como inyección SQL y Cross-Site Scripting) y un sistema para generar sitemaps o feeds RSS, ya vienen integradas en el framework.
+
+La razón para elegir Django radica en su combinación única de velocidad, seguridad, escalabilidad y versatilidad. Permite pasar de un concepto a un producto final en muy poco tiempo. Su ORM (Object-Relational Mapper) simplifica enormemente la interacción con la base de datos, y su sistema de plantillas separa la lógica de la presentación. Es increíblemente escalable, utilizado por gigantes como Instagram, Spotify y Pinterest para manejar millones de usuarios. Además, cuenta con una de las comunidades más activas y una documentación exhaustiva, lo que facilita encontrar soluciones y aprender. Es una opción ideal tanto para startups que necesitan moverse rápido como para grandes empresas que requieren una plataforma sólida y segura.
+
+-------------------------------------------------
+
+PREGUNTA 2: ¿Qué es el patrón MTV (Model-Template-View) en Django? (simplificado de MVC). Compará MTV con MVC.
+El patrón Modelo-Template-Vista (MTV) es la arquitectura de software que utiliza Django para organizar el código de una aplicación web. Es una variante del conocido patrón Modelo-Vista-Controlador (MVC), adaptada a las particularidades del desarrollo web.
+
+Modelo (Model): Es la fuente única y definitiva de información sobre tus datos. Representa la estructura lógica de los datos de la aplicación y se encarga de la interacción con la base de datos. En Django, un modelo es una clase de Python que define los campos y comportamientos de los datos que estás almacenando. Cada modelo se asigna a una única tabla de la base de datos, y el ORM de Django se encarga de traducir las operaciones sobre los objetos de Python en consultas SQL.
+
+Template (Plantilla): Es la capa de presentación. Define cómo se mostrarán los datos al usuario, generalmente en formato HTML. El lenguaje de plantillas de Django (DTL) permite incrustar variables y lógica de presentación simple (como bucles o condicionales) directamente en el HTML. Su filosofía es separar el diseño visual de la lógica de negocio, permitiendo que diseñadores y desarrolladores trabajen de forma independiente.
+
+Vista (View): Actúa como el puente entre el Modelo y el Template. Es una función o clase de Python que recibe una solicitud HTTP, procesa la lógica de negocio necesaria (por ejemplo, consultando datos al Modelo), y luego devuelve una respuesta HTTP, que a menudo implica renderizar un Template con los datos obtenidos.
+
+La principal diferencia con el patrón MVC radica en la distribución de responsabilidades. En MVC, el Controlador recibe la entrada del usuario, interactúa con el Modelo y selecciona una Vista para renderizar la respuesta. En el MTV de Django, el propio framework actúa como el controlador, manejando el enrutamiento de URLs y dirigiendo la solicitud a la Vista apropiada. La Vista de Django se asemeja más al Controlador de MVC, ya que contiene la lógica de procesamiento. Lo que en MVC se llama Vista (la capa de presentación) en Django se divide en la Vista (la lógica) y el Template (la presentación real). En resumen, se podría decir que View (Django) = Controller (MVC) y Template (Django) = View (MVC).
+
+-------------------------------------------------
+
+PREGUNTA 3: ¿Qué entendemos por app en Django?
+En el ecosistema de Django, una "app" es un módulo autocontenido y reutilizable que cumple una función de negocio específica dentro de un proyecto web. Un proyecto de Django puede considerarse el contenedor principal que engloba toda la configuración y las aplicaciones para un sitio web en particular. Dentro de este proyecto, se crean una o más apps para organizar el código de manera lógica y modular. Por ejemplo, si estuvieras construyendo un blog, podrías tener un proyecto llamado mi_blog que contenga varias apps: una app articulos para manejar las publicaciones, comentarios y categorías; una app usuarios para gestionar los perfiles de autor y la autenticación; y quizás una app contacto para el formulario de contacto.
+
+Cada app es un directorio de Python que encapsula todo lo necesario para su funcionamiento: sus propios modelos (la estructura de datos), vistas (la lógica), templates (la presentación), pruebas unitarias y su propia configuración de URLs (urls.py). Esta estructura promueve una excelente separación de responsabilidades y la reutilización de código. Una app bien diseñada, como un sistema de encuestas, podría ser fácilmente extraída de un proyecto e integrada en otro con un mínimo esfuerzo. Esta filosofía de diseño no solo hace que los proyectos grandes sean más fáciles de mantener y escalar, sino que también fomenta un ecosistema donde la comunidad puede compartir e intercambiar aplicaciones para resolver problemas comunes, acelerando aún más el desarrollo.
+
+-------------------------------------------------
+
+PREGUNTA 4: ¿Qué es el flujo request-response en Django?
+El flujo request-response (solicitud-respuesta) es el ciclo de vida completo de una interacción del usuario con una aplicación Django. Describe la secuencia de eventos desde que un usuario hace clic en un enlace o envía un formulario hasta que recibe la página web renderizada en su navegador.
+
+Solicitud HTTP: Todo comienza cuando el navegador del usuario envía una solicitud HTTP a tu servidor. Esta solicitud contiene información vital como la URL a la que se quiere acceder, el método (GET, POST, etc.), cabeceras y, opcionalmente, datos (como los de un formulario).
+
+Servidor WSGI: La solicitud es recibida por un servidor web (como Nginx o Apache) que la pasa a un servidor de aplicaciones compatible con WSGI (Web Server Gateway Interface), como Gunicorn o uWSGI. Este servidor actúa como la interfaz estándar entre el servidor web y la aplicación Django.
+
+Middleware: Antes de llegar al núcleo de Django, la solicitud atraviesa una serie de "middlewares". Estos son ganchos que pueden procesar la solicitud antes de que llegue a la vista y también procesar la respuesta antes de que se envíe al usuario. Se usan para funciones como la gestión de sesiones, la autenticación o la protección CSRF.
+
+Enrutador de URL: El componente central de Django, el enrutador de URL, examina la ruta de la URL solicitada (la parte que viene después del dominio). Compara esta ruta con los patrones definidos en el archivo urls.py del proyecto para determinar qué vista es la responsable de manejar esa solicitud específica.
+
+Ejecución de la Vista: Una vez que se encuentra una coincidencia, Django llama a la función o método de la vista correspondiente, pasándole el objeto de la solicitud (request) como argumento. La vista contiene la lógica principal: interactúa con los modelos para consultar o modificar datos en la base de datos, procesa formularios, etc.
+
+Renderizado de la Plantilla y Respuesta: Después de ejecutar su lógica, la vista generalmente renderiza una plantilla, pasándole un "contexto" (un diccionario con los datos que la plantilla necesita mostrar). El motor de plantillas de Django genera el HTML final. La vista empaqueta este HTML en un objeto HttpResponse.
+
+Retorno a través de Middleware y Servidor: La respuesta viaja de vuelta a través de los middlewares (en orden inverso) y es devuelta al servidor web, que finalmente la envía al navegador del usuario para que sea mostrada.
+
+-------------------------------------------------
+
+PREGUNTA 5: ¿Qué es el concepto de ORM (Object-Relational Mapping)?
+El Mapeo Objeto-Relacional (ORM) es una poderosa técnica de programación que crea un puente entre el mundo de la programación orientada a objetos (como Python) y el mundo de las bases de datos relacionales (que usan tablas, filas y columnas, y se gestionan con SQL). El problema fundamental que resuelve el ORM es la "diferencia de impedancia" entre estos dos paradigmas. Escribir código Python es muy diferente a escribir consultas SQL, y mezclarlos puede hacer que el código sea difícil de leer, mantener y portar a diferentes sistemas de bases de datos.
+
+El ORM de Django abstrae esta complejidad. En lugar de escribir SELECT * FROM productos WHERE categoria='electronica', te permite interactuar con tu base de datos utilizando objetos de Python de una manera mucho más intuitiva y "Pythónica". Defines la estructura de tus tablas de la base de datos como clases de Python, llamadas Modelos. Cada clase corresponde a una tabla, y cada atributo de la clase (por ejemplo, nombre = models.CharField(...)) corresponde a una columna en esa tabla.
+
+Una vez definidos los modelos, puedes realizar operaciones de base de datos de forma programática. Por ejemplo, para obtener todos los productos de la categoría "electrónica", simplemente escribirías Producto.objects.filter(categoria='electronica'). El ORM de Django se encarga de generar la consulta SQL optimizada y correcta para la base de datos que estés utilizando (ya sea PostgreSQL, MySQL, SQLite, etc.). Esto no solo hace que el código sea más limpio y legible, sino que también proporciona una capa de seguridad contra ataques de inyección SQL y te permite cambiar de sistema de base de datos con mínimos o ningún cambio en tu código Python.
+
+-------------------------------------------------
+
+PREGUNTA 6: ¿Qué son los templates en Django?
+Los templates (plantillas) en Django son la capa de presentación de la arquitectura MTV. Son archivos de texto, típicamente HTML, que definen la estructura y el diseño de la salida que se enviará al navegador del usuario. La filosofía de Django es que la capa de presentación debe centrarse en cómo se muestran los datos, no en la lógica de negocio compleja. Por lo tanto, el lenguaje de plantillas de Django (DTL - Django Template Language) es intencionadamente simple y no permite ejecutar código Python arbitrario. Su objetivo es garantizar una clara separación entre la lógica (en las vistas) y el diseño (en las plantillas), permitiendo que desarrolladores y diseñadores puedan trabajar en paralelo.
+
+El DTL tiene tres componentes principales:
+
+Variables: Se marcan con dobles llaves, como {{ nombre_usuario }}. Cuando la plantilla se renderiza, estas variables son reemplazadas por los valores correspondientes pasados desde la vista a través de un objeto de contexto.
+
+Tags (Etiquetas): Se marcan con llave y signo de porcentaje, como {% for producto in lista_productos %}. Las etiquetas controlan la lógica de la plantilla, permitiendo bucles, condicionales ({% if %}), carga de archivos estáticos ({% static %}) y, lo más importante, la herencia de plantillas.
+
+Filtros: Se aplican a las variables usando el símbolo de barra vertical (|), como {{ fecha_publicacion|date:"d M Y" }}. Los filtros permiten transformar la forma en que se muestra una variable, por ejemplo, para formatear fechas, convertir texto a mayúsculas o truncar texto largo.
+
+Una de las características más potentes es la herencia de plantillas. Puedes crear una plantilla base (base.html) que contenga la estructura común de tu sitio (cabecera, pie de página, menús de navegación) y definir bloques ({% block contenido %}) que las plantillas "hijas" pueden sobrescribir. Esto evita la repetición masiva de código HTML y facilita la gestión de un diseño consistente en todo el sitio web.
+
+-------------------------------------------------
+
+PREGUNTA 7: ¿Como se lo instala?
+Instalar Django es un proceso sencillo, pero se recomienda encarecidamente hacerlo dentro de un entorno virtual para evitar conflictos entre las dependencias de diferentes proyectos. Un entorno virtual es una carpeta que contiene una instalación de Python aislada del resto del sistema.
+
+Aquí está el proceso paso a paso:
+Prerrequisitos: Instalar Python y pip. Primero, asegúrate de tener Python instalado en tu sistema. Puedes descargarlo desde python.org. El instalador de Python generalmente incluye pip, que es el gestor de paquetes de Python y la herramienta que usaremos para instalar Django. Puedes verificar si los tienes abriendo una terminal o línea de comandos y ejecutando python --version y pip --version.
+
+Crear un Entorno Virtual. Navega en tu terminal a la carpeta donde quieres crear tu proyecto. Luego, ejecuta el siguiente comando para crear un entorno virtual (por ejemplo, llamado .venv): python -m venv .venv
+
+Activar el Entorno Virtual. Una vez creado, debes activarlo. La activación modifica la configuración de tu terminal para que utilice el intérprete de Python y los paquetes de este entorno aislado.
+Instalar Django con pip. 
+
+Ahora que estás dentro del entorno virtual activo, puedes instalar Django de forma segura usando pip. Simplemente ejecuta: "pip install Django" y Pip descargará e instalará la última versión estable de Django y sus dependencias dentro de tu entorno virtual. Una vez instalado, el siguiente paso típico es crear un nuevo proyecto con django-admin startproject mi_proyecto y luego una primera aplicación con python manage.py startapp mi_app.
