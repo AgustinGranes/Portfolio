@@ -1,0 +1,210 @@
+CAPITULO 1:
+### **Introducción al Tutorial**
+
+El objetivo de este tutorial es guiarte en la creación de una aplicación de encuestas simple utilizando Django. La aplicación tendrá dos partes principales:
+
+  * Un **sitio público** donde los usuarios pueden ver y votar en las encuestas.
+  * Un **sitio de administración** que te permite agregar, modificar y eliminar encuestas.
+
+-----
+
+### **Paso 1: Configuración Inicial**
+
+Lo primero es asegurarte de que tienes Django instalado. Para ello, se utiliza el siguiente comando en la terminal:
+
+```bash
+$ python -m django --version
+```
+
+  * **`python -m django`**: Le dice a Python que ejecute el módulo de Django. La opción `-m` se usa para ejecutar un módulo de la biblioteca de Python como un script.
+  * **`--version`**: Es un argumento que le pide a Django que muestre su versión instalada.
+
+Si Django está instalado, verás el número de la versión. Si no, recibirás un error. El tutorial está escrito para Django 5.2, que es compatible con Python 3.10 y versiones posteriores.
+
+-----
+
+### **Paso 2: Creación del Proyecto**
+
+Un **proyecto** en Django es una colección de configuraciones para una instancia de Django, incluyendo la configuración de la base de datos, opciones específicas de Django y configuraciones de la aplicación.
+
+1.  **Crear un directorio para el proyecto:**
+
+    ```bash
+    $ mkdir djangotutorial
+    ```
+
+      * **`mkdir djangotutorial`**:  Este comando crea un nuevo directorio llamado `djangotutorial` donde se almacenará el código del proyecto. El nombre es arbitrario; podrías llamarlo de cualquier otra forma.
+
+2.  **Crear el proyecto de Django:**
+
+    ```bash
+    $ django-admin startproject mysite djangotutorial
+    ```
+
+      * **`django-admin`**: Es una utilidad de línea de comandos para tareas administrativas de Django.
+      * **`startproject mysite`**: Este es el comando que crea un nuevo proyecto de Django. `mysite` es el nombre que le estamos dando al proyecto.
+      * **`djangotutorial`**: Este es el directorio donde se creará el proyecto. Si no se especifica, se creará en el directorio actual.
+
+Después de ejecutar este comando, tendrás la siguiente estructura de archivos:
+
+```
+djangotutorial/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+```
+
+  * **`manage.py`**: Es una utilidad de línea de comandos que te permite interactuar con tu proyecto Django. Es una versión más específica del proyecto de `django-admin`.
+  * **`mysite/`**: Este es el paquete de Python real para tu proyecto. Su nombre es el que usarás para importar cualquier cosa dentro de él (por ejemplo, `mysite.urls`).
+  * **`mysite/__init__.py`**: Es un archivo vacío que le indica a Python que este directorio debe ser considerado como un paquete de Python.
+  * **`mysite/settings.py`**: Contiene toda la configuración de tu proyecto Django. Aquí se configuran la base de datos, las aplicaciones instaladas, las plantillas, etc.
+  * **`mysite/urls.py`**: Es el archivo donde se declaran las URLs para tu proyecto. Funciona como una "tabla de contenidos" de tu sitio web.
+  * **`mysite/asgi.py`**: Es un punto de entrada para servidores web compatibles con ASGI para servir tu proyecto. Se utiliza para aplicaciones asíncronas.
+  * **`mysite/wsgi.py`**: Es un punto de entrada para servidores web compatibles con WSGI para servir tu proyecto. Es el estándar para aplicaciones síncronas.
+
+-----
+
+### **Paso 3: El Servidor de Desarrollo**
+
+Django incluye un servidor web ligero para que puedas desarrollar rápidamente sin tener que configurar un servidor de producción como Apache o Nginx.
+
+Para iniciar el servidor, ejecuta el siguiente comando desde el directorio `djangotutorial`:
+
+```bash
+$ python manage.py runserver
+```
+
+  * **`python manage.py`**: De nuevo, estás utilizando el script `manage.py` para ejecutar un comando de Django.
+  * **`runserver`**: Este es el comando que inicia el servidor de desarrollo.
+
+Verás una salida en la línea de comandos que indica que el servidor se está ejecutando en `http://127.0.0.1:8000/`. Si visitas esa URL en tu navegador, verás una página de bienvenida de Django.
+
+**Importante:** Este servidor es solo para desarrollo. No lo uses en un entorno de producción.
+
+-----
+
+### **Paso 4: Creación de la Aplicación "Polls" (Encuestas)**
+
+En Django, un **proyecto** es un sitio web completo, mientras que una **aplicación (app)** es un módulo que hace algo específico (por ejemplo, un blog, un sistema de encuestas, etc.). Un proyecto puede contener varias aplicaciones, y una aplicación puede estar en varios proyectos.
+
+Para crear la aplicación de encuestas, ejecuta el siguiente comando en el mismo directorio que `manage.py`:
+
+```bash
+$ python manage.py startapp polls
+```
+
+  * **`startapp polls`**: Este comando crea una nueva aplicación llamada `polls`.
+
+Esto creará un nuevo directorio `polls` con la siguiente estructura:
+
+```
+polls/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+```
+
+  * **`__init__.py`**: Indica que `polls` es un paquete de Python.
+  * **`admin.py`**: Aquí es donde registras tus modelos para que aparezcan en el sitio de administración de Django.
+  * **`apps.py`**: Contiene la configuración de la aplicación `polls`.
+  * **`migrations/`**: Este directorio almacena las migraciones de la base de datos. Las migraciones son la forma en que Django propaga los cambios que haces en tus modelos a tu base de datos.
+  * **`models.py`**: Aquí defines los modelos de tu aplicación, que son la representación de los datos de tu aplicación en la base de datos.
+  * **`tests.py`**: En este archivo escribes las pruebas para tu aplicación.
+  * **`views.py`**: Aquí es donde escribes la lógica de tu aplicación. Las vistas reciben una solicitud web y devuelven una respuesta web.
+
+-----
+
+### **Paso 5: Escribir tu Primera Vista y URLconf**
+
+1.  **Escribir la Vista:**
+    Abre el archivo `polls/views.py` y añade el siguiente código:
+
+    ```python
+    from django.http import HttpResponse
+
+    def index(request):
+        return HttpResponse("Hello, world. You're at the polls index.")
+    ```
+
+      * **`from django.http import HttpResponse`**: Importa la clase `HttpResponse`, que se utiliza para enviar una respuesta de texto simple.
+      * **`def index(request):`**:  Define una función de vista llamada `index`. Todas las vistas reciben un objeto `request` como primer argumento.
+      * **`return HttpResponse(...)`**: Crea un objeto `HttpResponse` con el texto proporcionado y lo devuelve.
+
+2.  **Crear el URLconf de la Aplicación:**
+    Crea un nuevo archivo llamado `polls/urls.py` y añade el siguiente código:
+
+    ```python
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [
+        path("", views.index, name="index"),
+    ]
+    ```
+
+      * **`from django.urls import path`**: Importa la función `path`, que se utiliza para definir patrones de URL.
+      * **`from . import views`**: Importa el módulo `views` de la aplicación actual (`polls`).
+      * **`urlpatterns = [...]`**: Es una lista que Django utiliza para encontrar la vista correcta para una URL solicitada.
+      * **`path("", views.index, name="index")`**: Define un patrón de URL.
+          * **`""`**: Es la ruta de la URL. Una cadena vacía coincide con la raíz de la URL de la aplicación.
+          * **`views.index`**: Es la vista que se llamará cuando la URL coincida.
+          * **`name="index"`**: Es un nombre opcional para esta URL, que te permite referirte a ella de forma única en otras partes de tu proyecto.
+
+3.  **Incluir el URLconf de la Aplicación en el Proyecto:**
+    Modifica el archivo `mysite/urls.py` para que incluya el URLconf de la aplicación `polls`:
+
+    ```python
+    from django.contrib import admin
+    from django.urls import include, path
+
+    urlpatterns = [
+        path("polls/", include("polls.urls")),
+        path("admin/", admin.site.urls),
+    ]
+    ```
+
+      * **`from django.urls import include`**: Importa la función `include`, que te permite incluir otros URLconfs.
+      * **`path("polls/", include("polls.urls"))`**: Le dice a Django que cuando alguien visite una URL que comience con `polls/`, debe buscar en el archivo `polls/urls.py` para encontrar la vista correspondiente.
+
+-----
+
+### **Paso 6: Verificación Final**
+
+1.  **Ejecuta el servidor de desarrollo:**
+
+    ```bash
+    $ python manage.py runserver
+    ```
+
+2.  **Visita la URL:**
+    Abre tu navegador y ve a `http://localhost:8000/polls/`. Deberías ver el texto "Hello, world. You're at the polls index.", que es el que definiste en tu vista `index`.
+
+¡Y eso es todo\! Has creado tu primera página web con Django.
+
+### **Explicación de los Archivos Subidos**
+
+Aquí tienes una explicación de los archivos que subiste en la carpeta `Django`:
+
+  * **`Django/djangotutorial/manage.py`**: Como se mencionó anteriormente, esta es la utilidad de línea de comandos para tu proyecto.
+  * **`Django/djangotutorial/mysite/settings.py`**: Este archivo contiene la configuración de tu proyecto `mysite`.
+  * **`Django/djangotutorial/mysite/urls.py`**: Este es el archivo de configuración de URL principal para tu proyecto `mysite`.
+  * **`Django/djangotutorial/mysite/asgi.py` y `wsgi.py`**: Estos archivos son los puntos de entrada para los servidores web ASGI y WSGI, respectivamente.
+  * **`Django/djangotutorial/polls/admin.py`**: Aquí registrarías tus modelos para que aparezcan en la interfaz de administración de Django.
+  * **`Django/djangotutorial/polls/apps.py`**: Define la configuración de tu aplicación `polls`.
+  * **`Django/djangotutorial/polls/models.py`**: En este archivo definirás las tablas de tu base de datos como clases de Python (Modelos).
+  * **`Django/djangotutorial/polls/tests.py`**: Este archivo es para escribir pruebas para tu aplicación `polls`.
+  * **`Django/djangotutorial/polls/views.py`**: Aquí es donde escribes la lógica de tu aplicación.
+  * **`Django/Respuestas Cuestionario.txt`**: Este archivo contiene respuestas a preguntas comunes sobre Django, como qué es, el patrón MTV, qué es una aplicación, el flujo de solicitud-respuesta, el ORM, las plantillas y cómo instalarlo. Es un buen recurso de referencia.
+
+----------------------------------------------------------------------------------
+
+CAPITULO 2:
