@@ -1,0 +1,421 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Agustín</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/media-queries.css' %}">
+</head>
+<body>
+
+    <div class="global-blobs">
+        <img src="{% static 'blog/Assets/blob.png' %}" class="global-blob global-blob-1" alt="Blob 1">
+        <img src="{% static 'blog/Assets/Me.png' %}" class="global-blob global-blob-2" alt="Blob 2">
+    </div>
+
+    <nav class="menu">
+        <div class="logo-space">
+            <img src="{% static 'blog/Assets/Logo - Sin Fondo.png' %}" alt="Logo">
+        </div>
+        <div class="social-icons">
+            <a href="https://github.com/AgustinGranes/Portfolio" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:agustingranes@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </nav>
+
+    <nav class="dot-navigation">
+        <ul>
+            <!-- CAMBIO CRÍTICO: Eliminar href y data-section, usar solo índices -->
+            <li><a href="#" class="active"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="section">
+        <div class="background-blob"></div>
+        <div class="foreground-me"></div>
+        <img src="{% static 'blog/Assets/blob.png' %}" class="background-blob-bottomleft" alt="Blob Bottom Left">
+        <div class="container">
+            <div class="typing-container">
+                <span id="auto-type"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section section">
+        <div class="about-bg"></div>
+        <img src="{% static 'blog/Assets/blob.png' %}" class="about-blob topleft" alt="Blob Top Left">
+        <img src="{% static 'blog/Assets/blob.png' %}" class="about-blob topright" alt="Blob Top Right">
+        <div class="about-card">
+            <img src="{% static 'blog/Assets/Logo - Sin Fondo.png' %}" class="about-corner-logo" alt="Logo">
+            <img src="{% static 'blog/Assets/Me.png' %}" class="about-corner-me" alt="Me">
+            <div class="about-title">
+                SOBRE MÍ:
+            </div>
+            <div class="about-content">
+                <div class="about-section-item">
+                    <img src="{% static 'blog/Assets/foto1.png' %}" alt="Foto 1" class="about-photo">
+                    <div class="about-text">
+                        Soy Agustín Granes, un estudiante de la Tecnicatura en Computación, ambicioso y extrovertido por naturaleza. Mi objetivo profesional es convertirme en analista de datos. Disfruto de los desafíos y poseo excelentes habilidades sociales que facilitan la comunicación fluida y el trabajo en equipo, elementos esenciales para el éxito en cualquier entorno.
+                    </div>
+                </div>
+                
+                <div class="about-section-item reverse">
+                    <img src="{% static 'blog/Assets/foto2.png' %}" alt="Foto 2" class="about-photo">
+                    <div class="about-text">
+                        Mi familia es mi pilar fundamental y mi mayor inspiración. Criado en Buenos Aires, Argentina, me enseñaron el valor del trabajo en equipo y el apoyo incondicional. Estos principios son los que aplico en cada proyecto profesional que lidero, buscando siempre la colaboración y un ambiente positivo para alcanzar metas colectivas.
+                    </div>
+                </div>
+                
+                <div class="about-section-item">
+                    <img src="{% static 'blog/Assets/foto3.png' %}" alt="Foto 3" class="about-photo">
+                    <div class="about-text">
+                        Como hincha de Racing Club, aprendí sobre pasión, resiliencia y la importancia de la estrategia colectiva. En el fútbol, como en los proyectos, cada integrante es clave para la victoria. Esta mentalidad de equipo, mi adaptabilidad y el compromiso inquebrantable son los valores que aporto profesionalmente.
+                    </div>
+                </div>
+                
+                <div class="about-section-item reverse">
+                    <img src="{% static 'blog/Assets/foto4.png' %}" alt="Foto 4" class="about-photo">
+                    <div class="about-text">
+                        Mi formación técnica incluye un sólido dominio en programación y maquetado web con Python, SQL, JavaScript, HTML y CSS. Además, cuento con experiencia en bases de datos, ciberseguridad e inteligencia artificial. Poseo la certificación IT Essentials de Cisco, validando mis habilidades integrales en hardware y software para cualquier proyecto.
+                    </div>
+                </div>
+                
+                <div class="about-section-item">
+                    <img src="{% static 'blog/Assets/foto5.png' %}" alt="Foto 5" class="about-photo">
+                    <div class="about-text">
+                        El automovilismo, y en especial la Fórmula 1, representa la fusión perfecta entre alta tecnología y estrategia. Mi gran sueño es aplicar mis habilidades como analista de datos para optimizar el rendimiento en este ámbito, utilizando la telemetría y modelos predictivos para influir en decisiones críticas en milisegundos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="section">
+        <img src="{% static 'blog/Assets/avion.gif' %}" alt="Avión volando" class="flying-plane">
+        <div class="portfolio-container">
+            <div class="top-row">
+                <!-- HTML -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-html" class="skill-checkbox">
+                    <label for="skill-html" class="bubble html-bubble">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5 Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-html" class="close-modal-btn">&times;</label>
+                        <h2>HTML5</h2>
+                        <p>Lenguaje base para la creación de sitios web.</p>
+                        <ul>
+                            <li>Experiencia con formularios y validaciones</li>
+                            <li>Conocimiento en buenas practicas</li>
+                            <li>Dominio de etiquetas semánticas</li>
+                            <li>Integración de multimedia y APIs</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-css" class="skill-checkbox">
+                    <label for="skill-css" class="bubble css-bubble">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-css" class="close-modal-btn">&times;</label>
+                        <h2>CSS3</h2>
+                        <p>Estilización y diseño visual de interfaces web.</p>
+                        <ul>
+                            <li>Experiencia con Flexbox y Grid</li>
+                            <li>Diseño responsivo y mobile-first</li>
+                            <li>Animaciones y transiciones</li>
+                            <li>Personalización de componentes</li>
+                            <li>Sliders, secciones y diseños</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-python" class="skill-checkbox">
+                    <label for="skill-python" class="bubble python-bubble">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-python" class="close-modal-btn">&times;</label>
+                        <h2>Python</h2>
+                        <p>Desarrollo de aplicaciones, juegos y manejo de datos</p>
+                        <ul>
+                            <li>Creación de juegos con PyGame</li>
+                            <li>Manejo de archivos JSON</li>
+                            <li>Programación orientada a objetos</li>
+                            <li>Manejo de datos</li>
+                            <li>Fácil adaptación a nuevas librerías</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Edición de Video -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-video" class="skill-checkbox">
+                    <label for="skill-video" class="bubble video-bubble">
+                        <img src="https://cdn-icons-png.flaticon.com/512/421/421027.png" alt="Edición de Video">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-video" class="close-modal-btn">&times;</label>
+                        <h2>Edición de Video</h2>
+                        <p>Creación y edición de contenido audiovisual profesional.</p>
+                        <ul>
+                            <li>Montaje y postproducción</li>
+                            <li>Efectos visuales y transiciones</li>
+                            <li>Corrección de color</li>
+                            <li>Edición de audio sincronizada</li>
+                            <li>Optimización para diferentes plataformas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-row">
+                <!-- SQL -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-sql" class="skill-checkbox">
+                    <label for="skill-sql" class="bubble sql-bubble">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sql_data_base_with_logo.svg/1200px-Sql_data_base_with_logo.svg.png" alt="SQL Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-sql" class="close-modal-btn">&times;</label>
+                        <h2>SQL</h2>
+                        <p>Gestión y consulta de bases de datos relacionales.</p>
+                        <ul>
+                            <li>Consultas SELECT avanzadas</li>
+                            <li>Diseño de bases de datos</li>
+                            <li>Normalización y relaciones</li>
+                            <li>Procedimientos almacenados</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Django -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-django" class="skill-checkbox">
+                    <label for="skill-django" class="bubble django-bubble">
+                        <img src="https://www.svgrepo.com/show/353657/django-icon.svg" alt="Django Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-django" class="close-modal-btn">&times;</label>
+                        <h2>Django</h2>
+                        <p>Desarrollo web backend con el framework Django.</p>
+                        <ul>
+                            <li>Creación de aplicaciones web</li>
+                            <li>Modelado de datos con ORM</li>
+                            <li>Desarrollo de APIs REST</li>
+                            <li>Autenticación y seguridad</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Photoshop -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-photoshop" class="skill-checkbox">
+                    <label for="skill-photoshop" class="bubble photoshop-bubble">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/500px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-photoshop" class="close-modal-btn">&times;</label>
+                        <h2>Photoshop</h2>
+                        <p>Edición y manipulación de imágenes profesionales.</p>
+                        <ul>
+                            <li>Retoque fotográfico</li>
+                            <li>Creación de banners y assets</li>
+                            <li>Composición y efectos</li>
+                            <li>Uso de capas y máscaras</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- IA / Prompting -->
+                <div class="skill-item">
+                    <input type="checkbox" id="skill-ia" class="skill-checkbox">
+                    <label for="skill-ia" class="bubble ia-bubble">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6360/6360908.png" alt="IA Logo">
+                    </label>
+                    <div class="skill-modal">
+                        <label for="skill-ia" class="close-modal-btn">&times;</label>
+                        <h2>Inteligencia Artificial</h2>
+                        <p>Dominio de IA y buen prompting para soluciones modernas.</p>
+                        <ul>
+                            <li>Prompt engineering</li>
+                            <li>Automatización de tareas</li>
+                            <li>Integración de IA en proyectos</li>
+                            <li>Uso de herramientas generativas</li>
+                            <li>Entre otras</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="section">
+        <div class="contenido-proyectos">
+            <h1>Proyectos</h1>
+            <div class="slider-proyectos-wrapper">
+                <button class="slider-arrow left" id="slider-prev" disabled>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 4L8 11L14 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="slider-proyectos" id="slider-proyectos">
+                  <div class="slider-proyectos-inner" id="slider-proyectos-inner">
+                    <div class="proyecto-card" data-proyecto="1">
+                        <div class="proyecto-card-img">
+                            <img src="{% static 'blog/Assets/Preguntados.png' %}" alt="Preguntados">
+                        </div>
+                        <div class="proyecto-nombre">Preguntados</div>
+                        <div class="proyecto-desc">Hecho con 15 Años en Python/PyGame.</div>
+                    </div>
+                    <div class="proyecto-card" data-proyecto="2">
+                        <div class="proyecto-card-img">
+                            <img src="{% static 'blog/Assets/Space Invaders.png' %}" alt="Space Invaders">
+                        </div>
+                        <div class="proyecto-nombre">Space Invaders</div>
+                        <div class="proyecto-desc">Hecho con 15 Años en Python/PyGame</div>
+                    </div>
+                  </div>
+                </div>
+                <button class="slider-arrow right" id="slider-next">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 4L14 11L8 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="proyecto-popup" id="proyecto-popup">
+            <div class="proyecto-popup-content">
+                <span class="proyecto-popup-close">&times;</span>
+                <div class="proyecto-popup-img"></div>
+                <div class="proyecto-popup-nombre">Nombre del Proyecto</div>
+                <div class="proyecto-popup-descripcion"></div>
+                <div class="proyecto-popup-proposito"></div>
+                <a href="#" class="github-button" id="github-repo-link" target="_blank" style="display:none;">
+                    <i class="fab fa-github"></i>
+                    Ver en GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DEL BLOG CON MISMO DISEÑO QUE PROYECTOS -->
+    <section id="blog" class="section">
+        <div class="contenido-proyectos">
+            <h1>Blog Personal</h1>
+            {% if posts %}
+            <div class="slider-proyectos-wrapper">
+                <button class="slider-arrow left" id="blog-slider-prev" disabled>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 4L8 11L14 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="slider-proyectos" id="slider-blog">
+                  <div class="slider-proyectos-inner" id="slider-blog-inner">
+                                    {% for post in posts %}
+                                    <div class="proyecto-card blog-card" data-blog="{{ forloop.counter0 }}">
+                        <div class="proyecto-card-img blog-card-img">
+                            {% if post.cover %}
+                                <img src="{{ post.cover.url }}" alt="Portada" onerror="this.src='https://via.placeholder.com/320x140/e0e0e0/999?text=Imagen+no+disponible'">
+                            {% else %}
+                                <img src="https://via.placeholder.com/320x140/e0e0e0/999?text=Sin+imagen" alt="Sin portada">
+                            {% endif %}
+                        </div>
+                        <div class="proyecto-nombre blog-nombre">{{ post.title }}</div>
+                        <div class="proyecto-desc blog-desc">{{ post.content|truncatewords:15 }}</div>
+                        <div class="blog-date" style="font-size: 0.9em; color: #666; margin-top: 8px; text-align: center;">{{ post.pub_date|date:'d/m/Y' }}</div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <button class="slider-arrow right" id="blog-slider-next">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 4L14 11L8 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            {% else %}
+            <div style="color: #fff; font-size: 1.5rem; text-align: center; padding: 40px 20px;">
+                Aún no hay nada aquí
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Blog Popup -->
+        <div class="proyecto-popup blog-popup" id="blog-popup">
+            <div class="proyecto-popup-content blog-popup-content">
+                <span class="proyecto-popup-close blog-popup-close" onclick="closeBlogPopup()">&times;</span>
+                <div class="proyecto-popup-img blog-popup-img"></div>
+                <div class="proyecto-popup-nombre blog-popup-nombre">Título del Post</div>
+                <div class="proyecto-popup-descripcion blog-popup-content-text"></div>
+                <div class="blog-popup-date" style="color: #666; font-size: 0.95em; margin-bottom: 12px; text-align: center;"></div>
+                <div class="comments-section" id="commentsSection"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <div class="contact-container">
+            <div class="contact-left">
+                <div class="contact-logo">
+                    <img src="{% static 'blog/Assets/Logo - Sin Fondo.png' %}" alt="Logo">
+                </div>
+            </div>
+            <div class="contact-right">
+                <div class="contact-card">
+                    <div class="contact-title">Contacto</div>
+                    <form class="contact-form" id="contactForm">
+                        {% csrf_token %}
+                        <div class="contact-message" id="contactMessage"></div>
+                        <input type="text" id="contact-name" name="name" placeholder="Nombre" required maxlength="100">
+                        <input type="email" id="contact-email" name="email" placeholder="Email" required>
+                        <textarea id="contact-message" name="message" rows="3" placeholder="Mensaje" required maxlength="1000"></textarea>
+                        <button type="submit" id="contactSubmit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Inicializar datos de los posts -->
+    <script>
+        window.postsData = [
+            {% for post in posts %}
+                {
+                    "id": {{ post.id }},
+                    "title": "{{ post.title|escapejs }}",
+                    "content": "{{ post.content|linebreaksbr|escapejs }}",
+                    "pub_date": "{{ post.pub_date|date:'d/m/Y H:i' }}",
+                    "cover": {% if post.cover %}"{{ post.cover.url }}"{% else %}null{% endif %}
+                }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ];
+    </script>
+    <script src="{% static 'blog/script.js' %}"></script>
+</body>
+</html>
