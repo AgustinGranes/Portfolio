@@ -1,0 +1,11 @@
+Ingresos por género:
+
+Clásico: $501.50
+Ficción: $329.45
+Infantil: $122.00
+Historia: $57.80
+Fantasía: $476.01
+Ciencia Ficción: $107.00
+Ciencia: $32.15
+
+Ingreso total: $1625.91
