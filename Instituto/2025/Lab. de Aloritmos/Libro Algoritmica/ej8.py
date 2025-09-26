@@ -1,9 +1,9 @@
 def binario(numero):
-    if numero == 0:
-        return numero
+    if numero == 0 or numero == 1:
+        return str(numero)
     else:
-        return str(numero) 
-    
+        return binario(numero // 2) + str(numero % 2)
+
 print(binario(54))
 print(binario(24))
 print(binario(6))

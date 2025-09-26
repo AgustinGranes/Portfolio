@@ -1,0 +1,2 @@
+"PREGUNTARLE AL PROFE, DEBERIA TENER DOS DEF, UNO DONDE SE SAQUE EL MCM Y OTRO DONDE SE SAQUE EL MCD"
+"Multiplica los dos números. Calcula su MCD usando el algoritmo de Euclides. Divide el resultado de la multiplicación por el MCD que encontraste."

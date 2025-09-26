@@ -2,7 +2,7 @@ def serie(numero):
     if numero == 1:
         return numero
     else:
-        return  serie(numero - 1) + 1 / numero
+        return serie(numero - 1) + 1 / numero
     
 print(serie(54))
 print(serie(24))
