@@ -1,0 +1,54 @@
+body {
+  overflow-x: hidden;
+  background-color: rgb(228, 228, 228);
+}
+
+h1 {
+    font-size: 30px;
+}
+
+
+header {
+    background-color: #272e48;
+    }
+
+.articulos {
+    background-color: white;
+    width: 425px;
+    height: 250px;
+}
+
+.tamaño_img {
+    height: 80px;
+    width: 80px;
+}
+
+.ancho {
+    width: 100px;
+}
+
+.alto {
+    height: 40px;
+}
+
+.icono-nav {
+    width: 45px;
+    height: 45px;
+}
+
+
+.escudo-partido1 {
+    height: 90px;
+    width: 90px;
+}
+
+.escudo-partido2 {
+     height: 100px;
+     width: 80px;
+}
+
+.jugador {
+    height: 160px;
+    width: 160px;
+}
+

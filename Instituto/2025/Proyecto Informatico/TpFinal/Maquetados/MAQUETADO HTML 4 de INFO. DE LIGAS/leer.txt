@@ -1,0 +1,1 @@
+Los archivos se nombraron con el formato “info_nombreLiga” porque, al crear la web, habrá tres secciones que compartirán el mismo formato y diseño en HTML, pero mostrarán información diferente correspondiente a las tablas de cada liga. De esta forma, el nombre permite identificar fácilmente a qué liga pertenece cada archivo.
