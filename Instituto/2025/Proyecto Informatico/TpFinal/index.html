@@ -9,62 +9,70 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header class="py-1 px-0 d-flex align-items-center">
-      <img src="Imagenes/logo.png" alt="" class="ms-2 float-start tamaño_img">
-      <h1 class="fs-1 text-light ms-2">Promiedos</h1>
-      <button class="bg-white position-absolute top-8 start-50 p-8 ancho rounded-3 border-0 alto fs-5">Ligas</button>
+    <header class="py-1 px-0 d-flex">
+      <div class="col-md-4 align-items-center d-flex">
+        <a href="index.html" class="text-decoration-none">
+        <img src="Imagenes/logo.png" alt="" class="ms-2 float-start tamaño_img">
+        </a>
+        <a href="index.html" class="text-decoration-none">
+        <h1 class="fs-1 text-light ms-2">Promiedos</h1>
+        </a>
+      </div>
+      <div class="col-md-4  align-items-center d-flex">
+        <div class="mx-auto ">
+          <a href="opciones.html"><button class="bg-white ancho rounded-3 border-0 alto fs-5">Ligas</button></a>
+        </div>  
+      </div>
+      <div class="col-md-4 align-items-center d-flex">
       <nav class="position-absolute end-0 me-4 d-flex gap-4">
-        <a href="" target="_self"><img src="Imagenes/sol.png" alt="" class="icono-nav"></a>
         <a href="tablas.html" target="_self"><img src="Imagenes/datos.png" alt="" class="icono-nav"></a>
         <a href="contacto.html" ><img src="Imagenes/contacto.png" alt="" class="icono-nav"></a>
       </nav>
+      </div>
     </header>
   <main>
     <section>
-    <h1 class="mt-3 ms-3">Partido destacados del día</h1>
-    <div class="row text-center d-flex justify-content-between ms-5 me-5 mt-3">
-    <article class="col-md-4 articulos rounded-4">
-      <h2 class="mt-3">Real Madrid vs Barcelona</h2>
-      <div class="d-flex justify-content-between ms-3 me-3 mt-4">
-      <img src="Imagenes/real madrid.png" class="escudo-partido2">
-      <h2 class="mt-4">2 - 1</h2>
-      <img src="Imagenes/barcelona.png" class="escudo-partido1">
-      </div>
-      <div><h3>Min: 64:25</h3></div>
-    </article>
+      <h1 class="mt-3 ms-3">Partido destacados del día</h1>
+      
+      <div class="row text-center d-flex justify-content-between ms-5 me-5 mt-3">
+        <article class="col-md-4 articulos rounded-4">
+          <h2 class="mt-3">Real Madrid vs Barcelona</h2>
+          <div class="d-flex justify-content-between ms-3 me-3 mt-4 align-items-center">
+            <img src="Imagenes/real madrid.png" class="escudo-partido2">
+            <h2 class="mt-4">2 - 1</h2>
+            <img src="Imagenes/barcelona.png" class="escudo-partido1">
+          </div>
+          <div class="mt-4"><h3>Min: 64:25</h3></div>
+        </article>
 
     <article class="col-md-4 articulos rounded-4 p-3">
-  <h2 class="text-center mb-3">⭐ Mejor del Partido</h2>
-  <div class="d-flex align-items-center justify-content-between p-2 bg-light rounded-3">
-    
-    <!-- Imagen del jugador -->
-    <div class="text-center">
-      <img src="Imagenes/mbappe.png" class="jugador rounded-circle mb-2" alt="Mbappé">
-      <h5 class="text-primary fw-bold mb-0">Kylian Mbappé</h5>
-    </div>
+      <h2 class="text-center mb-3">⭐ Mejor del Partido</h2>
+      <div class="d-flex align-items-center justify-content-between p-2 bg-light rounded-3">
+        <div class="text-center">
+          <img src="Imagenes/mbappe.png" class="jugador rounded-circle mb-2" alt="Mbappé">
+            <h5 class="text-primary fw-bold mb-0">Kylian Mbappé</h5>
+        </div>
+        <div class="text-start ms-3">
+          <p class="mb-1"><strong>Puntuación:</strong> 9.5</p>
+          <p class="mb-1"><strong>Asistencias:</strong> 1</p>
+          <p class="mb-1"><strong>Pases clave:</strong> 5</p>
+          <p class="mb-0"><strong>Regates exitosos:</strong> 7</p>
+        </div>
+      </div>
+    </article>
 
-    <!-- Estadísticas -->
-    <div class="text-start ms-3">
-      <p class="mb-1"><strong>Puntuación:</strong> 9.5</p>
-      <p class="mb-1"><strong>Asistencias:</strong> 1</p>
-      <p class="mb-1"><strong>Pases clave:</strong> 5</p>
-      <p class="mb-0"><strong>Regates exitosos:</strong> 7</p>
-    </div>
-  </div>
-</article>
 
-<!-- Goleador del Partido -->
 <article class="col-md-4 articulos rounded-4 p-3">
   <h2 class="text-center mb-3">⚽ Goleador del Partido</h2>
   <div class="d-flex align-items-center justify-content-between p-2 bg-light rounded-3">
     
-    <!-- Imagen del jugador -->
+    
     <div class="text-center">
       <img src="Imagenes/vinicius.jfif" class="jugador rounded-circle mb-2" alt="Vinicius Junior">
       <h5 class="text-success fw-bold mb-0">Vinicius Junior</h5>
     </div>
 
-    <!-- Estadísticas -->
+    
     <div class="text-start ms-3">
       <p class="mb-1"><strong>Goles:</strong> 2</p>
       <p class="mb-1"><strong>Disparos a puerta:</strong> 3</p>
@@ -80,8 +88,8 @@
 <section>
   <h1>Ligas Principales</h1>
 
-  <div class="row d-flex justify-content-between">
-    <div class="col-md-4 articulos">
+  <div class="row d-flex justify-content-between ms-5 me-5 mt-3">
+    <div class="col-md-4 articulos_ligas">
       <div>
         <img src="Logos/Premier-League.png" class="jugador" alt="">
         <h4>Premier League</h4>
@@ -96,7 +104,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 articulos">
+    <div class="col-md-4 articulos_ligas">
       <div>
         <img src="Logos/LaLiga.png" class="jugador" alt="">
         <h4>La Liga</h4>
@@ -111,7 +119,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 articulos">
+    <div class="col-md-4 articulos_ligas">
       <div>
         <img src="Logos/Liga-Profesional-Argentina.png" class="jugador" alt="">
         <h4>Liga Profesional Argentina</h4>
